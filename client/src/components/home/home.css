@@ -1,0 +1,39 @@
+
+.card_group
+{
+    display: flex;
+    flex-wrap: wrap;
+        background-color: #1a1a1a;
+
+}
+.card_container
+{
+    background-color: #1a1a1a;
+    border-style: solid;
+    margin: 1%;
+    width: 15rem;
+}
+
+.card_img
+{
+   
+}
+.card_text_div
+{
+    background-color: #1a1a1a;
+    color: white;
+}
+.card_text
+{
+    display: block;
+}
+
+.title
+{
+    font-family: 'Netflix Sans',"Helvetica Neue","Segoe UI","Roboto","Ubuntu","sans-serif";
+    font-weight: 700;
+}
+
+.overview
+{
+}

@@ -1,5 +1,7 @@
 .navbar_container{
     border-style: solid;
+    background-color: #000000;
+    color: white;
 }
 
 .company_logo {

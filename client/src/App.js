@@ -9,7 +9,7 @@ import Movie from './components/movie/movie';
 
 function App() {
   return (
-    <Container fluid={true}>
+    <Container className='app' fluid={true}>
       <Navbar></Navbar>
       <BrowserRouter>
         <Routes>
