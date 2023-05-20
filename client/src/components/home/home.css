@@ -1,39 +1,78 @@
+.section {
+    color: white;
+    margin: 10px;
+    border-bottom: solid;
+    border-color: #ff4017;
+    font-family: 'Netflix Sans', "Helvetica Neue", "Segoe UI", "Roboto", "Ubuntu", "sans-serif";
+    font-size: 1.5rem;
+}
 
-.card_group
-{
+.card_group {
     display: flex;
     flex-wrap: wrap;
-        background-color: #1a1a1a;
-
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
 }
-.card_container
-{
+
+.card_container {
+    position: absolute;
     background-color: #1a1a1a;
     border-style: solid;
-    margin: 1%;
+
+    margin: 10px 10px;
     width: 15rem;
+    overflow: hidden;
+
+
 }
 
-.card_img
-{
-   
+.card_container :hover {}
+
+.card_poster {
+    position: relative;
+    overflow: hidden;
 }
-.card_text_div
-{
+
+.card_poster::before {
+    position: absolute;
+    background: linear-gradient(0deg, #000 50%, transparant);
+    transition: 0.5s;
+    z-index: 1;
+}
+
+
+.card_img {
+    width: 100%;
+}
+
+.main_text_div {}
+
+.card_text_div {
+    position: absolute;
+    padding: 10px;
     background-color: #1a1a1a;
+    box-sizing: border-box;
     color: white;
+    top: 320px;
+    transition: 0.5s;
+    z-index: 2;
 }
-.card_text
-{
+
+.card_container:hover .card_text_div {
+    top: 100px;
+    overflow: auto;
+    height: 100%;
+}
+
+
+
+
+.card_text {
     display: block;
 }
 
-.title
-{
-    font-family: 'Netflix Sans',"Helvetica Neue","Segoe UI","Roboto","Ubuntu","sans-serif";
+.title {
+    font-family: 'Netflix Sans', "Helvetica Neue", "Segoe UI", "Roboto", "Ubuntu", "sans-serif";
     font-weight: 700;
-}
-
-.overview
-{
 }

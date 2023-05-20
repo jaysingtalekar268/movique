@@ -64,18 +64,23 @@ function Home() {
                     <Container fluid={true} className="card_group">
                         {movieData.results.map(movie =>
 
-                            <div className="card  card_container" onClick={() => navigate("/movie", { state: { selecredMovieData: movie } })}>
-                                <img className="img-fluid card_img " src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie image" />
-                                <div className="card_text_div">
-                                    <span className="card_text title">{movie.title}</span>
-
-                                    {genresData.genres ? movie.genre_ids.map(gen_id =>
-                                        <span className="card_text">{genresData.genres.find(gen => gen.id == gen_id).name}</span>
-                                    )
-                                        : <span className="card_text">getting genres</span>}
-                                    <span className="card_text">{movie.release_date}</span>
-                                    <span className="card_text overview">{movie.overview}</span>
+                            <div className="card  card_container" onClick={() => navigate("/movie", { state: { selecredMovieData: movie, genresData } })}>
+                                <div className="card_poster">
+                                    <img className="img-fluid card_img " src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie image" />
                                 </div>
+
+
+                                <div class="main_text_div">
+                                    <div className="card_text_div">
+                                        <span className="card_text title">{movie.title}</span>
+
+                                        {genresData.genres ? movie.genre_ids.map(gen_id =>
+                                            <span className="card_text">{genresData.genres.find(gen => gen.id == gen_id).name}</span>
+                                        )
+                                            : <span className="card_text">getting genres</span>}
+                                        <span className="card_text">{movie.release_date}</span>
+                                        <span className="card_text overview">{movie.overview}</span>
+                                    </div>                                </div>
                             </div>
                         )}
                     </Container>
@@ -149,6 +154,9 @@ function Home() {
         <Container fluid={true}>
             <Row>
                 <Col>
+                    <div className="section">
+                        <span >UPCOMING </span>
+                    </div>
                     <UpcomingMovieSection></UpcomingMovieSection>
 
                 </Col>
