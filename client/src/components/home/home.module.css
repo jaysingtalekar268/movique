@@ -1,6 +1,7 @@
 .section {
     color: white;
-    margin: 10px;
+
+    margin: 20px 10px;
     border-bottom: solid;
     border-color: #ff4017;
     font-family: 'Netflix Sans', "Helvetica Neue", "Segoe UI", "Roboto", "Ubuntu", "sans-serif";
@@ -14,6 +15,7 @@
     justify-content: center;
     background-color: #1a1a1a;
 }
+
 
 .card_container {
     position: absolute;
@@ -36,7 +38,6 @@
 
 .card_poster::before {
     position: absolute;
-    background: linear-gradient(0deg, #000 50%, transparant);
     transition: 0.5s;
     z-index: 1;
 }
@@ -70,9 +71,40 @@
 
 .card_text {
     display: block;
+    border-bottom: 1px groove;
+    margin: 2px 0;
+    padding: 2px 0;
 }
 
 .title {
     font-family: 'Netflix Sans', "Helvetica Neue", "Segoe UI", "Roboto", "Ubuntu", "sans-serif";
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 1.5rem;
 }
+
+.genres {
+    display: inline;
+}
+
+.label {
+    font-size: 1.1rem;
+
+}
+
+.overview {
+    overflow-wrap: break-word;
+
+}
+
+.redirect {
+    margin-top: 50%;
+    color: white;
+}
+
+.pagination_div {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.page_btn {}

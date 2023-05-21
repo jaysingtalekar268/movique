@@ -1,10 +1,14 @@
 import { Container, Nav } from "react-bootstrap";
 import "./navbar.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Search from "../search/search";
 
-function Navbar() {
+
+function Navbar(props) {
 
     const [fix, setFix] = useState(false);
+
+    const [searchResult, setSData] = useState("");
 
     const sticky = () => {
         if (window.scrollY >= 70) {
@@ -15,7 +19,9 @@ function Navbar() {
             setFix(false);
         }
     };
-
+useEffect(()=>{
+    // alert("navbar"+props.searchPage)
+},[props.searchPage]);
     window.addEventListener("scroll", sticky);
 
     return (
@@ -26,16 +32,22 @@ function Navbar() {
 
                 <li className="navbar_li">
                     <div className="logo_div">
-                        <a href=""><img src={require("../images/logo-white-crop.png")} className="test company_logo img-fluid "></img>
+                        <a href="/"><img src={require("../images/logo-white-crop.png")} className="test company_logo img-fluid "></img>
                         </a>
                     </div>
                 </li>
 
                 <li className="navbar_li">
-                    <a className="navbar_link" href="">Upcoming</a>
+                    <a className="navbar_link" href="#upcoming">Upcoming Movies</a>
                 </li>
                 <li className="navbar_li">
-                    <a className="navbar_link" href="">Upcoming</a>
+                    <a className="navbar_link" href="#popular">Popular Movies</a>
+                </li>
+                <li className="navbar_li">
+                    <a className="navbar_link" href="#top-rated">Top-Rated Movies</a>
+                </li>
+                <li className="navbar_li">
+                    <Search setSData={props.setSRData} searchPage={props.searchPage}></Search>
                 </li>
             </ul>
         </Container>

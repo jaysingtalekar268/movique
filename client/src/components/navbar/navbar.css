@@ -31,8 +31,9 @@
 }
 
 .navbar_li {
+    display: flex;
     list-style: none;
-    margin: 10px;
+    margin: 10px 15px;
     font-size: 1.2rem;
 
 }
