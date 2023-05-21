@@ -16,7 +16,7 @@ function Movie() {
     const api_flag = useRef(true);
     const get_review = async () => {
 
-        let reviewResult = await fetch(`https://api.themoviedb.org/3/movie/${location.state.selecredMovieData.id}/reviews?api_key=db75be3f6da59e6c54d0b9f568d19d16`, {
+        let reviewResult = await fetch(`https://api.themoviedb.org/3/movie/${location.state.selecredMovieData.id}/reviews?api_key=${process.env.REACT_APP_API_KEY}`, {
             method: "GET",
             headers: {
                 'Content-type': 'application/json'

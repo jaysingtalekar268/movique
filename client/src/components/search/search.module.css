@@ -1,31 +1,34 @@
-.search_div{
-display: inline;
-width: 100%;
-max-width: 20rem;
+.search_div {
+    display: inline;
+    width: 100%;
+    max-width: 20rem;
 }
-.search{
-    
+
+.search {
+
     width: 100%;
     max-width: 500px;
 }
-.cancel{
-    color:  white;
+
+.cancel {
+    color: white;
     width: 2rem;
     max-width: 2rem;
     /* height: 100%; */
     max-height: 2rem;
     /* border: solid red; */
     margin: 0 5px;
-    cursor:pointer;
+    cursor: pointer;
 
 }
-.search_btn{
-    color:  white;
+
+.search_btn {
+    color: white;
     width: 2rem;
     max-width: 2rem;
     /* height: 100%; */
     max-height: 2rem;
-    cursor:pointer;
+    cursor: pointer;
 
     /* border: solid red; */
 }

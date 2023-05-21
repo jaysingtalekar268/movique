@@ -12,7 +12,7 @@ function Search(props) {
 
     const searchMovie = async () => {
         // alert(props.searchPage)
-        let searchResult = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=db75be3f6da59e6c54d0b9f568d19d16&query=${queryData}&page=${props.searchPage}`, {
+        let searchResult = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${queryData}&page=${props.searchPage}`, {
             method: "GET",
             headers: {
                 'Content-type': 'application/json'
@@ -31,8 +31,8 @@ function Search(props) {
     useEffect(() => {
         {
             // alert("serch" + props.searchPage)
-            if(props.searchPage>=2)
-            searchMovie();
+            if (props.searchPage >= 2)
+                searchMovie();
         }
     }, [props.searchPage]);
 

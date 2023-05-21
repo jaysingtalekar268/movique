@@ -107,4 +107,9 @@
     margin: 20px 0px;
 }
 
-.page_btn {}
+.page_btn {
+    background-color: black;
+    color: #ff4017;
+    padding: 3px;
+    /* margin: 5px; */
+}

@@ -24,7 +24,7 @@ function Home(props) {
     const navigate = useNavigate();
 
     const getPopMovie = async () => {
-        let movie_result = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=db75be3f6da59e6c54d0b9f568d19d16&page=${pCounter}`, {
+        let movie_result = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${pCounter}`, {
             method: "GET",
             headers: {
                 'Content-type': 'application/json'
@@ -42,7 +42,7 @@ function Home(props) {
         // console.warn(movie_result);
     };
     const getUpMovie = async () => {
-        let movie_result = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=db75be3f6da59e6c54d0b9f568d19d16&page=${uCounter}`, {
+        let movie_result = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&page=${uCounter}`, {
             method: "GET",
             headers: {
                 'Content-type': 'application/json'
@@ -59,7 +59,7 @@ function Home(props) {
         // console.warn(movie_result);
     };
     const getTopMovie = async () => {
-        let movie_result = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=db75be3f6da59e6c54d0b9f568d19d16&page=${uCounter}`, {
+        let movie_result = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${uCounter}`, {
             method: "GET",
             headers: {
                 'Content-type': 'application/json'
@@ -77,7 +77,7 @@ function Home(props) {
     };
 
     const get_genres = async () => {
-        let genres_result = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=db75be3f6da59e6c54d0b9f568d19d16", {
+        let genres_result = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}", {
             method: "GET",
             headers: {
                 'Content-type': 'application/json'
@@ -208,7 +208,7 @@ function Home(props) {
                                         <span className={`${styles.card_text} ${styles.title}`}>{movie.title}</span>
 
                                         <span className={`${styles.card_text} ${styles.genres_text}`}>
-                                            {genresData.genres ? movie.genre_ids.map((gen_id,index2) =>
+                                            {genresData.genres ? movie.genre_ids.map((gen_id, index2) =>
                                                 <span key={index2}>
                                                     | {genresData.genres.find(gen => gen.id == gen_id).name} |
                                                 </span>
@@ -262,7 +262,7 @@ function Home(props) {
                                         <span className={`${styles.card_text} ${styles.title}`}>{movie.title}</span>
 
                                         <span className={`${styles.card_text} ${styles.genres_text}`}>
-                                            {genresData.genres ? movie.genre_ids.map((gen_id,index2) =>
+                                            {genresData.genres ? movie.genre_ids.map((gen_id, index2) =>
                                                 <span key={index2}>
                                                     | {genresData.genres.find(gen => gen.id == gen_id).name} |
                                                 </span>
@@ -316,7 +316,7 @@ function Home(props) {
                                         <span className={`${styles.card_text} ${styles.title}`}>{movie.title}</span>
 
                                         <span className={`${styles.card_text} ${styles.genres_text}`}>
-                                            {genresData.genres ? movie.genre_ids.map((gen_id,index2) =>
+                                            {genresData.genres ? movie.genre_ids.map((gen_id, index2) =>
                                                 <span key={index2}>
                                                     | {genresData.genres.find(gen => gen.id == gen_id).name} |
                                                 </span>

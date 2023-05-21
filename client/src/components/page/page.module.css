@@ -1,7 +1,8 @@
-
 .current_page {
     color: white;
-    margin: 0 5px;
+    margin: 0 6px;
+    padding: 5px;
+
 }
 
 .active_page {
