@@ -19,9 +19,9 @@ function Navbar(props) {
             setFix(false);
         }
     };
-useEffect(()=>{
-    // alert("navbar"+props.searchPage)
-},[props.searchPage]);
+    useEffect(() => {
+        // alert("navbar"+props.searchPage)
+    }, [props.searchPage]);
     window.addEventListener("scroll", sticky);
 
     return (
