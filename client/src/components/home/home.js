@@ -77,7 +77,7 @@ function Home(props) {
     };
 
     const get_genres = async () => {
-        let genres_result = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}", {
+        let genres_result = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`, {
             method: "GET",
             headers: {
                 'Content-type': 'application/json'
@@ -165,11 +165,11 @@ function Home(props) {
         }
 
         if (pageStatus) {
-            setTCounter(uCounter - 1);
+            setTCounter(tCounter - 1);
 
         }
         else {
-            setUCounter(uCounter + 1);
+            setTCounter(tCounter + 1);
         }
     }
     const handleSPage = (pageStatus) => {
@@ -202,7 +202,7 @@ function Home(props) {
                                     <img className={`img-fluid ${styles.card_img}`} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie image" />
                                 </div>
 
-
+                                
                                 <div className={styles.main_text_div}>
                                     <div className={styles.card_text_div}>
                                         <span className={`${styles.card_text} ${styles.title}`}>{movie.title}</span>
