@@ -1,5 +1,5 @@
 import { Container, Row, Col, Card, CardGroup } from "react-bootstrap";
-import "./home.css";
+import styles from "./home.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 function Home() {
@@ -61,25 +61,25 @@ function Home() {
         if (movieData) {
             return (
                 <>
-                    <Container fluid={true} className="card_group">
-                        {movieData.results.map(movie =>
+                    <Container fluid={true} className={styles.card_group}>
+                        {movieData.results.map((movie, index) =>
 
-                            <div className="card  card_container" onClick={() => navigate("/movie", { state: { selecredMovieData: movie, genresData } })}>
-                                <div className="card_poster">
-                                    <img className="img-fluid card_img " src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie image" />
+                            <div className={`card  ${styles.card_container}`} key={index} onClick={() => navigate("/movie", { state: { selecredMovieData: movie, genresData } })}>
+                                <div className={styles.card_poster}>
+                                    <img className={`img-fluid ${styles.card_img}`} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie image" />
                                 </div>
 
 
-                                <div class="main_text_div">
-                                    <div className="card_text_div">
-                                        <span className="card_text title">{movie.title}</span>
+                                <div class={styles.main_text_div}>
+                                    <div className={styles.card_text_div}>
+                                        <span className={`${styles.card_text} ${styles.title}`}>{movie.title}</span>
 
                                         {genresData.genres ? movie.genre_ids.map(gen_id =>
-                                            <span className="card_text">{genresData.genres.find(gen => gen.id == gen_id).name}</span>
+                                            <span className={`${styles.card_text}`}>{genresData.genres.find(gen => gen.id == gen_id).name}</span>
                                         )
-                                            : <span className="card_text">getting genres</span>}
-                                        <span className="card_text">{movie.release_date}</span>
-                                        <span className="card_text overview">{movie.overview}</span>
+                                            : <span className={`${styles.card_text}`}>getting genres</span>}
+                                        <span className={`${styles.card_text}`}>{movie.release_date}</span>
+                                        <span className={`${styles.card_text} ${styles.overview}`}>{movie.overview}</span>
                                     </div>                                </div>
                             </div>
                         )}
@@ -154,7 +154,7 @@ function Home() {
         <Container fluid={true}>
             <Row>
                 <Col>
-                    <div className="section">
+                    <div className={styles.section}>
                         <span >UPCOMING </span>
                     </div>
                     <UpcomingMovieSection></UpcomingMovieSection>

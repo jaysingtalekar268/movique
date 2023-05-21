@@ -1,62 +1,110 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import "./movie.css";
+import styles from "./movie.module.css";
+import { TextCenter } from "react-bootstrap-icons";
 
 function Movie() {
 
-    const [movieData, setMData] = useState();
+    const [reviewData, setRData] = useState();
 
     const location = useLocation();
 
-    // const api_
-    // const get_movie=async ()=>{
+    const api_flag = useRef(true);
+    const get_review = async () => {
 
-    //     let movieResult = await fetch("",{
-    //         method:"GET",
-    //         headers:{
-    //             'Content-type':'application/json'
-    //         }
-    //     });
+        let reviewResult = await fetch(`https://api.themoviedb.org/3/movie/${location.state.selecredMovieData.id}/reviews?api_key=db75be3f6da59e6c54d0b9f568d19d16`, {
+            method: "GET",
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
 
-    //     movieResult = await movieResult.json();
+        reviewResult = await reviewResult.json();
 
-    //     if(movieResult)
-    //     {
-    //         setMData(movieResult);
-    //     }
-    // }
+        if (reviewResult) {
+            api_flag.current = false;
+            console.warn(reviewResult);
+            setRData(reviewResult);
+        }
+    }
 
+    useEffect(() => {
+        if (location.state.selecredMovieData && api_flag.current) {
+            get_review();
+        }
+    });
+
+    const UserReview = () => {
+
+        if (reviewData) {
+            return (
+                <div className={styles.card_group} >
+                    {
+                        reviewData.results.map((review, index) =>
+                            <div className={styles.card_container} key={index} >
+                                <div className={styles.card_text_div}>
+                                    <span className={styles.card_text}>{review.author_details.name ? review.author_details.name : review.author_details.username}</span>
+                                </div>
+                                <div>
+                                    <img src={review.author_details.avatar_path} alt={review.author_details.name}></img>
+
+                                </div>
+                                <div className={styles.card_text_div}>
+                                    <span className={styles.card_text}>{review.content}</span>
+                                    <span className={styles.card_text}>{new Date(review.created_at).getDate()}/{new Date(review.created_at).getMonth()}/{new Date(review.created_at).getFullYear()} </span>
+                                </div>
+                            </div>
+                        )}
+                </div>
+            );
+        }
+        else {
+            return (
+                <>
+                    <span>
+                        Getting user Reviews
+                    </span>
+                </>
+            );
+        }
+    };
     return (
         <Container fluid={true}>
             <Row>
                 <Col>
-                    <div>
-                        <div className="poster_div" style={{
-                         background: `url(https://image.tmdb.org/t/p/original/${location.state.selecredMovieData.poster_path})`
-                         }}> 
-                        {/* <img className=" poster" src={`https://image.tmdb.org/t/p/original/${location.state.selecredMovieData.poster_path}`} alt="movie image"></img> */}
-                        </div> 
+                    <div className={styles.main_div} >
+                        <div className={styles.poster_div} style={{ background: `url(https://image.tmdb.org/t/p/original/${location.state.selecredMovieData.poster_path}`, backgroundRepeat: "no-repeat", backgroundPosition: "center center", backgroundSize: "100% 100%" }}>
 
-                        {/* <div className="poster_div">
-                            <img className=" poster" src={`https://image.tmdb.org/t/p/original/${location.state.selecredMovieData.poster_path}`} alt="movie image"></img>
-                        </div> */}
-
-                        <div>
-                            <span className="movie_details">{location.state.selecredMovieData.original_language}</span>
-                            <span className="movie_details title">{location.state.selecredMovieData.title}</span>
-                            <span className="movie_details">{location.state.selecredMovieData.overview}</span>
-                            <span className="movie_details">{location.state.selecredMovieData.popularity}</span>
-                            <span className="movie_details">{location.state.selecredMovieData.genre_ids}</span>
-                            {location.state.genresData.genres ? location.state.selecredMovieData.genre_ids.map(gen_id =>
-                                <span className="movie_details">{location.state.genresData.genres.find(gen => gen.id == gen_id).name}</span>
-                            )
-                                : <span className="movie_details">getting genres</span>}
-                            <span className="movie_details">{location.state.selecredMovieData.release_data}</span>
-                            <span className="movie_details">{location.state.selecredMovieData.vote_count}</span>
-                            <span className="movie_details">{location.state.selecredMovieData.vote_average}</span>
                         </div>
+
                     </div>
+
+                    <div className={styles.text_div}>
+                        <span className={`${styles.movie_text} ${styles.title}`}>{location.state.selecredMovieData.title}  </span>
+                        <span className={styles.movie_text}>{location.state.selecredMovieData.original_language}  </span>
+
+                        <span className={`${styles.movie_text} ${styles.genres_text}`}> Genres{location.state.genresData.genres ? location.state.selecredMovieData.genre_ids.map(gen_id =>
+                            <span className=""> | {location.state.genresData.genres.find(gen => gen.id == gen_id).name} | </span>
+                        )
+                            : <span className="">getting genres</span>}</span>
+                        <span className={styles.movie_text}>{location.state.selecredMovieData.overview}  </span>
+                        <span className={styles.movie_text}>{location.state.selecredMovieData.popularity}  </span>
+                        <span className={styles.movie_text}>Release Date {location.state.selecredMovieData.release_date}  </span>
+
+                        <span className={styles.movie_text}>{location.state.selecredMovieData.vote_count}  </span>
+                        <span className={styles.movie_text}>{location.state.selecredMovieData.vote_average}  </span>
+                    </div>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <div className={styles.user_review}>
+                        <span >User Reviews </span>
+                    </div>
+
+                    <UserReview></UserReview>
                 </Col>
             </Row>
         </Container>

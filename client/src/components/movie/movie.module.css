@@ -1,0 +1,79 @@
+.main_div {
+    /* height: 50px; */
+    /* height: 100%; */
+    /* border: solid red; */
+    height: 48rem;
+}
+
+.poster_div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid yellow;
+    margin-top: 10px;
+}
+
+.text_div {
+    border: solid green;
+    background-color: #353532;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.movie_text {
+    margin: 10px;
+    padding: 5px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    
+    border-bottom: 1px groove;
+    
+}
+
+.title
+{
+    font-family: 'Netflix Sans', "Helvetica Neue", "Segoe UI", "Roboto", "Ubuntu", "sans-serif";
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.test {
+    color: white;
+}
+
+.genres_text {
+    display: inline;
+
+}
+
+.user_review {
+    color: white;
+    font-size: 2rem;
+
+}
+
+.card_group {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    border: solid yellow;
+
+}
+
+.card_container {
+
+    border-style: groove;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: #353532;
+    border-width: 2px;
+    padding: 10px;
+}
+
+.card_text {
+    display: block;
+}
