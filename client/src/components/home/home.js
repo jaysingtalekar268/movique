@@ -123,6 +123,12 @@ function Home(props) {
     useEffect(() => {
         getUpMovie();
     }, [uCounter]);
+    useEffect(() => {
+        getPopMovie();
+    }, [pCounter]);
+    useEffect(() => {
+        getTopMovie();
+    }, [tCounter]);
 
     const handleUPage = (pageStatus) => {
         if (uCounter == movieUData.total_pages && pageStatus == false) {

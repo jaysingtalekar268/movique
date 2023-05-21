@@ -1,4 +1,4 @@
-import { Container, Nav } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import styles from "./navbar.module.css"
 import { useEffect, useState } from "react";
 import Search from "../search/search";
@@ -9,7 +9,6 @@ function Navbar(props) {
     const [fix, setFix] = useState(false);
 
     const [menuState, setMState] = useState(true);
-    const [searchResult, setSData] = useState("");
 
     const sticky = () => {
         if (window.scrollY >= 70) {
@@ -46,8 +45,8 @@ function Navbar(props) {
 
                     <li className={styles.navbar_li}>
                         <div className={styles.logo_div}>
-                            <a href="/"><img src={require("../images/logo-white-crop.png")} className={`${styles.test} ${styles.company_logo} img-fluid`}></img>
-                            </a>
+                            <a href="/"><img src={require("../images/logo-white-crop.png")} className={`${styles.test} ${styles.company_logo} img-fluid`} alt="movique"></img>
+                            </a> 
                         </div>
                     </li>
 
