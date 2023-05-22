@@ -1,8 +1,15 @@
+.page_div{
+    display: flex;
+    justify-self: center;
+
+}
+
+
 .current_page {
+    display: flex;
     color: white;
     margin: 0 6px;
     padding: 5px;
-
 }
 
 .active_page {

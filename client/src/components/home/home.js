@@ -208,7 +208,7 @@ function Home(props) {
                                     <img className={`img-fluid ${styles.card_img}`} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie image" />
                                 </div>
 
-                                
+
                                 <div className={styles.main_text_div}>
                                     <div className={styles.card_text_div}>
                                         <span className={`${styles.card_text} ${styles.title}`}>{movie.title}</span>
