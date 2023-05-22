@@ -66,10 +66,10 @@ function Movie() {
 
 
         }
-        window.scrollTo({top: 50, left: 0, behavior: 'smooth'});
+        window.scrollTo({ top: 50, left: 0, behavior: 'smooth' });
         const timeout = setTimeout(() => {
-            window.scrollTo({top: 300, left: 0, behavior: 'smooth'});
-          }, 5000)
+            window.scrollTo({ top: 300, left: 0, behavior: 'smooth' });
+        }, 5000)
 
     });
 
@@ -86,7 +86,7 @@ function Movie() {
 
         setSLoad(true);
         navigate("/movie", { state: { selecredMovieData: movie, genresData: location.state.genresData } });
-        window.scrollTo({top: 50, left: 0, behavior: 'smooth'});
+        window.scrollTo({ top: 50, left: 0, behavior: 'smooth' });
     };
 
     const handleSPage = (pageStatus) => {

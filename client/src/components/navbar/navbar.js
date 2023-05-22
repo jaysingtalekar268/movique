@@ -1,4 +1,4 @@
-import { Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import styles from "./navbar.module.css"
 import { useEffect, useState } from "react";
 import Search from "../search/search";
@@ -35,7 +35,10 @@ function Navbar(props) {
 
     return (
         <Container fluid={true} className={fix ? `${styles.navbar_container} ${styles.navbar_container_fixed}` : `${styles.navbar_container}`}>
-
+            <div className={styles.logo_div}>
+                <a href="/"><img src={require("../images/logo-white-crop.png")} className={`${styles.test} ${styles.company_logo} img-fluid`} alt="movique"></img>
+                </a>
+            </div>
             <div className={styles.menu_div}>
                 <List className={styles.menu_icon} onClick={() => setMenu()}></List>
 
@@ -43,12 +46,12 @@ function Navbar(props) {
             {menuState &&
                 <ul className={styles.navbar_ul}>
 
-                    <li className={styles.navbar_li}>
+                    {/* <li className={styles.navbar_li}>
                         <div className={styles.logo_div}>
                             <a href="/"><img src={require("../images/logo-white-crop.png")} className={`${styles.test} ${styles.company_logo} img-fluid`} alt="movique"></img>
-                            </a> 
+                            </a>
                         </div>
-                    </li>
+                    </li> */}
 
                     <li className={styles.navbar_li}>
                         <a className={styles.navbar_link} href="#upcoming">Upcoming Movies</a>

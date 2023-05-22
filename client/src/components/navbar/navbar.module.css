@@ -12,8 +12,15 @@
 }
 
 .logo_div {
+
+
+    display: flex;
+    position: absolute;
+    
+    margin: 10px;
     width: 7rem;
     height: 1rem;
+   
 }
 
 .company_logo {
@@ -81,6 +88,11 @@
 
     .logo_div {
         margin: 10px;
+
+        display: flex;
+        flex-direction: row;
+        align-content: flex-end;
+        justify-content: flex-end;
     }
 
     .search {
