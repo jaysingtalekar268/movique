@@ -13,6 +13,7 @@ function Movie() {
     const [similarData, setSData] = useState();
 
     const [sCounter, setSCounter] = useState(1);
+    const [sLoad, setSLoad] = useState(false);
 
     const location = useLocation();
 
@@ -73,6 +74,18 @@ function Movie() {
         get_similar();
     }, [sCounter]);
 
+    useEffect(() => {
+        get_similar();
+
+    }, [sLoad]);
+
+    const similarHandler = (movie) => {
+
+        setSLoad(true);
+        navigate("/movie", { state: { selecredMovieData: movie, genresData: location.state.genresData } });
+
+    };
+
     const handleSPage = (pageStatus) => {
         if (sCounter == similarData.total_pages && pageStatus == false) {
             return setSCounter(1);
@@ -132,11 +145,10 @@ function Movie() {
                     <Container fluid={true} className={hstyles.card_group}>
                         {similarData.results.map((movie, index) =>
 
-                            <div className={`card  ${hstyles.card_container}`} key={index} onClick={() => navigate("/movie", { state: { selecredMovieData: movie, genresData: location.state.genresData } })}>
+                            <div className={`card  ${hstyles.card_container}`} key={index} onClick={() => similarHandler(movie)}>
                                 <div className={hstyles.card_poster}>
                                     <img className={`img-fluid ${hstyles.card_img}`} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie image" />
                                 </div>
-
 
                                 <div className={hstyles.main_text_div}>
                                     <div className={hstyles.card_text_div}>
@@ -153,7 +165,6 @@ function Movie() {
 
 
                                         <span className={`${hstyles.card_text}`}>{movie.release_date}</span>
-                                        <span className={`${hstyles.card_text} ${hstyles.label}`}>Overview</span>
                                         <span className={`${hstyles.card_text} ${hstyles.overview}`}>{movie.overview}</span>
                                     </div>                                </div>
                             </div>
@@ -205,11 +216,12 @@ function Movie() {
                                 )
                                     : <span className="">getting genres</span>}</span>
                                 <span className={styles.movie_text}>{location.state.selecredMovieData.overview}  </span>
-                                <span className={styles.movie_text}>{location.state.selecredMovieData.popularity}  </span>
-                                <span className={styles.movie_text}>Release Date {location.state.selecredMovieData.release_date}  </span>
+                                <span className={styles.movie_text}> <span className={styles.label}>Popularity </span>{location.state.selecredMovieData.popularity}  </span>
+                                <span className={styles.movie_text}> <span className={styles.label}>Release Date </span>{location.state.selecredMovieData.release_date}  </span>
+                                <span className={styles.movie_text}> <span className={styles.label}>Vote Count </span>{location.state.selecredMovieData.vote_count}  </span>
+                                <span className={styles.movie_text}> <span className={styles.label}>Vote Average </span>{location.state.selecredMovieData.vote_average}  </span>
 
-                                <span className={styles.movie_text}>{location.state.selecredMovieData.vote_count}  </span>
-                                <span className={styles.movie_text}>{location.state.selecredMovieData.vote_average}  </span>
+
                             </div>
                         </Col>
                     </Row>

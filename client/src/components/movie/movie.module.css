@@ -38,7 +38,13 @@
     font-weight: 500;
     font-size: 3rem;
 }
-
+.label{
+    /* border: solid red; */
+    width: min-content;
+    display: contents;
+    font-weight: 500;
+    color: white;
+}
 .test {
     color: white;
 }

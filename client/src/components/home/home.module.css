@@ -87,7 +87,10 @@
 }
 
 .label {
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
+    width: min-content;
+    /* display: contents; */
+    font-weight: 500;
 
 }
 

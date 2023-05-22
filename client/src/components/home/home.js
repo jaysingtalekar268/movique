@@ -222,9 +222,8 @@ function Home(props) {
                                                 : <span className={`${styles.card_text}`}>getting genres</span>}
                                         </span>
 
+                                        <span className={`${styles.card_text} `}> <span className={`${styles.label}`}>Release Date</span> {movie.release_date}</span>
 
-                                        <span className={`${styles.card_text}`}>{movie.release_date}</span>
-                                        <span className={`${styles.card_text} ${styles.label}`}>Overview</span>
                                         <span className={`${styles.card_text} ${styles.overview}`}>{movie.overview}</span>
                                     </div>                                </div>
                             </div>
@@ -276,8 +275,7 @@ function Home(props) {
                                                 : <span className={`${styles.card_text}`}>getting genres</span>}
                                         </span>
 
-                                        <span className={`${styles.card_text}`}>Popularity {movie.popularity}</span>
-                                        <span className={`${styles.card_text} ${styles.label}`}>Overview</span>
+                                        <span className={`${styles.card_text} `}> <span className={`${styles.label}`}>Popularity</span> {movie.popularity}</span>
                                         <span className={`${styles.card_text} ${styles.overview}`}>{movie.overview}</span>
                                     </div>
                                 </div>
@@ -329,9 +327,8 @@ function Home(props) {
                                             )
                                                 : <span className={`${styles.card_text}`}>getting genres</span>}
                                         </span>
-                                        <span className={`${styles.card_text}`}>VOTE COUNT {movie.vote_count}</span>
-                                        <span className={`${styles.card_text}`}>VOTE AVERAGE {movie.vote_average}</span>
-                                        <span className={`${styles.card_text} ${styles.label}`}>Overview</span>
+                                        <span className={`${styles.card_text} `}> <span className={`${styles.label}`}>VOTE COUNT </span> {movie.vote_count}</span>
+                                        <span className={`${styles.card_text} `}> <span className={`${styles.label}`}>VOTE AVERAGE </span> {movie.vote_average}</span>
                                         <span className={`${styles.card_text} ${styles.overview}`}>{movie.overview}</span>
 
                                     </div>
@@ -434,7 +431,6 @@ function Home(props) {
 
 
                                             <span className={`${styles.card_text}`}>{movie.release_date}</span>
-                                            <span className={`${styles.card_text} ${styles.label}`}>Overview</span>
                                             <span className={`${styles.card_text} ${styles.overview}`}>{movie.overview}</span>
                                         </div>                                </div>
                                 </div>
