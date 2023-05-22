@@ -69,7 +69,7 @@ function Movie() {
         window.scrollTo({top: 50, left: 0, behavior: 'smooth'});
         const timeout = setTimeout(() => {
             window.scrollTo({top: 300, left: 0, behavior: 'smooth'});
-          }, 3000)
+          }, 5000)
 
     });
 
