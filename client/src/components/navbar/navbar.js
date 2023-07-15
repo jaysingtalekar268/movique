@@ -3,10 +3,11 @@ import styles from "./navbar.module.css"
 import { useEffect, useState } from "react";
 import Search from "../search/search";
 import { List } from "react-bootstrap-icons"
-
 function Navbar(props) {
 
     const [fix, setFix] = useState(false);
+
+
 
     const [menuState, setMState] = useState(true);
 
